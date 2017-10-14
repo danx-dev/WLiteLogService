@@ -20,6 +20,7 @@ namespace WLiteLogService.Controllers
 
     public class LogController : ApiController
     {
+        [HttpPost]
         public void Log(Log log)
         {
             var logEntry = new LogEntry

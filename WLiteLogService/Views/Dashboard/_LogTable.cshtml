@@ -1,0 +1,28 @@
+﻿@model List<WLiteLogService.Models.LogEntryViewModel>
+@{
+    Layout = null;
+}
+<table class="table" id="logTabel">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Time</th>
+        <th>Application</th>
+        <th>Session</th>
+        <th>Message</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var log in Model)
+    {
+        <tr class="@log.LogLevel">
+            <td>@log.Id</td>
+            <td>@log.LogTime</td>
+            <td>@log.Application</td>
+            <td>@log.Session</td>
+            <td>@log.ShortMessage</td>
+        </tr>
+    }
+                      
+    </tbody>
+</table>

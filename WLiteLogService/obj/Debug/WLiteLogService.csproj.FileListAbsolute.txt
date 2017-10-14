@@ -94,6 +94,10 @@ C:\Danx-Dev Github\WLiteLogService\WLiteLogService\bin\System.Web.Razor.dll
 C:\Danx-Dev Github\WLiteLogService\WLiteLogService\bin\System.Web.Webpages.Deployment.dll
 C:\Danx-Dev Github\WLiteLogService\WLiteLogService\bin\System.Web.Webpages.dll
 C:\Danx-Dev Github\WLiteLogService\WLiteLogService\bin\System.Web.Webpages.Razor.dll
+C:\Danx-Dev Github\WLiteLogService\WLiteLogService\bin\WLiteLog.Database.dll
+C:\Danx-Dev Github\WLiteLogService\WLiteLogService\bin\System.Data.SQLite.dll
+C:\Danx-Dev Github\WLiteLogService\WLiteLogService\bin\WLiteLog.Database.pdb
+C:\Danx-Dev Github\WLiteLogService\WLiteLogService\bin\WLiteLog.Database.dll.config
 C:\Danx-Dev Github\WLiteLogService\WLiteLogService\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Danx-Dev Github\WLiteLogService\WLiteLogService\bin\System.Web.Razor.xml
 C:\Danx-Dev Github\WLiteLogService\WLiteLogService\bin\System.Web.Webpages.xml
@@ -105,12 +109,8 @@ C:\Danx-Dev Github\WLiteLogService\WLiteLogService\bin\Newtonsoft.Json.xml
 C:\Danx-Dev Github\WLiteLogService\WLiteLogService\bin\System.Net.Http.Formatting.xml
 C:\Danx-Dev Github\WLiteLogService\WLiteLogService\bin\System.Web.Http.xml
 C:\Danx-Dev Github\WLiteLogService\WLiteLogService\bin\System.Web.Http.WebHost.xml
+C:\Danx-Dev Github\WLiteLogService\WLiteLogService\bin\System.Data.SQLite.xml
+C:\Danx-Dev Github\WLiteLogService\WLiteLogService\bin\System.Data.SQLite.dll.config
 C:\Danx-Dev Github\WLiteLogService\WLiteLogService\obj\Debug\WLiteLogService.csprojResolveAssemblyReference.cache
 C:\Danx-Dev Github\WLiteLogService\WLiteLogService\obj\Debug\WLiteLogService.dll
 C:\Danx-Dev Github\WLiteLogService\WLiteLogService\obj\Debug\WLiteLogService.pdb
-C:\Danx-Dev Github\WLiteLogService\WLiteLogService\bin\WLiteLog.Database.dll
-C:\Danx-Dev Github\WLiteLogService\WLiteLogService\bin\System.Data.SQLite.dll
-C:\Danx-Dev Github\WLiteLogService\WLiteLogService\bin\WLiteLog.Database.pdb
-C:\Danx-Dev Github\WLiteLogService\WLiteLogService\bin\WLiteLog.Database.dll.config
-C:\Danx-Dev Github\WLiteLogService\WLiteLogService\bin\System.Data.SQLite.xml
-C:\Danx-Dev Github\WLiteLogService\WLiteLogService\bin\System.Data.SQLite.dll.config

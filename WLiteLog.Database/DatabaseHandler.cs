@@ -29,14 +29,15 @@ namespace WLiteLog.Database
         {
             using (var conn = new SQLiteConnection(_connectionString))
             {
-                var query = @"INSERT INTO LOGTABLE (Timestamp,Loglevel,Application,Session,Callsite,Message) 
-                            VALUES('@Timestamp','@Loglevel','@Application','@Session','@Callsite','@Message')";
-                query = query.Replace("@Timestamp", DateTime.Now.ToString());
+                var query = @"INSERT INTO LOGTABLE (Id,Timestamp,Loglevel,Application,Session,Callsite,Message) 
+                            VALUES('@ID','@Timestamp','@Loglevel','@Application','@Session','@Callsite','@Message')";
+                query = query.Replace("@Timestamp", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
                 query = query.Replace("@Loglevel", log.LogLevel);
                 query = query.Replace("@Application", log.Application);
                 query = query.Replace("@Session", log.Session);
                 query = query.Replace("@Callsite", log.Callsite);
                 query = query.Replace("@Message",log.Message);
+                query = query.Replace("@ID", Guid.NewGuid().ToString());
                 conn.Open();
                 using (var cmd = new SQLiteCommand(query, conn))
                 {
@@ -50,8 +51,8 @@ namespace WLiteLog.Database
             var list = new List<LogEntry>();
             using (var conn = new SQLiteConnection(_connectionString))
             {
-                var query = @"SELECT * FROM LOGTABLE WHERE Timestamp > '@DATE'";
-                query = query.Replace("@DATE", DateTime.Now.AddHours(-2).ToString());
+                var query = @"SELECT * FROM LOGTABLE WHERE Timestamp > DATETIME('@DATE')";
+                query = query.Replace("@DATE", DateTime.Now.AddHours(-2).ToString("yyyy-MM-dd HH:mm:ss"));
                 conn.Open();
                 using (var cmd = new SQLiteCommand(query, conn))
                 {
@@ -63,7 +64,7 @@ namespace WLiteLog.Database
                             {
                                 var log = new LogEntry();
                                 log.Id = reader.GetString(0);
-                                log.LogDateTime = DateTime.Parse(reader.GetString(1));
+                                log.LogDateTime = DateTime.ParseExact(reader.GetString(1), "yyyy-MM-dd HH:mm:ss", null);
                                 log.LogLevel = reader.GetString(2);
                                 log.Application = reader.GetString(3);
                                 log.Session = reader.GetString(4);
@@ -87,8 +88,8 @@ namespace WLiteLog.Database
             var response = new List<string>();
             using (var conn = new SQLiteConnection(_connectionString))
             {
-                var query = @"SELECT Application FROM LOGTABLE WHERE Timestamp > '@DATE'";
-                query = query.Replace("@DATE", date.ToString());
+                var query = @"SELECT DISTINCT(Application) FROM LOGTABLE WHERE Timestamp > DATETIME('@DATE')";
+                query = query.Replace("@DATE", date.ToString("yyyy-MM-dd HH:mm:ss"));
                 conn.Open();
                 using (var cmd = new SQLiteCommand(query, conn))
                 {

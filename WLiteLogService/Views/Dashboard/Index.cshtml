@@ -53,7 +53,7 @@
         <div class="col-md-6">
             <div id="custom-search-input">
                 <div class="input-group col-md-12">
-                    <input type="text" class="form-control input-lg" placeholder="Buscar" />
+                    <input type="text" class="form-control input-lg" placeholder="Search text..." id="search"/>
                     <span class="input-group-btn">
                         <button class="btn btn-info btn-lg" type="button">
                             <i class="glyphicon glyphicon-search"></i>
@@ -65,7 +65,7 @@
     </div>
     <br/>
     <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-2">
             @foreach (var app in Model.ListOfApplications)
             {
                 <div class="checkbox">
@@ -74,35 +74,42 @@
             }
 
         </div>
-        <div class="col-sm-9">
-            <table class="table" id="logTabel">
-                <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Time</th>
-                    <th>Application</th>
-                    <th>Session</th>
-                    <th>Message</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach (var log in Model.ListOfLogEntryViewModels)
-                {
-                    <tr class="@log.LogLevel">
-                        <td>@log.Id</td>
-                        <td>@log.LogTime</td>
-                        <td>@log.Application</td>
-                        <td>@log.Session</td>
-                        <td>@log.ShortMessage</td>
-                    </tr>
-                }
-                      
-                </tbody>
-            </table>
+        <div class="col-sm-10">
+            <div id="tabel">
+                @Html.Partial("~/Views/Dashboard/_LogTable.cshtml", Model.ListOfLogEntryViewModels)
+            </div>
         </div>
         
     </div>
 </div>
 
 </body>
+<script type="text/javascript">
+    function addRowHandlers() {
+        var table = document.getElementById("logTabel");
+        var rows = table.getElementsByTagName("tr");
+
+        for (i = 0; i < rows.length; i++) {
+            var currentRow = table.rows[i];
+            currentRow.onclick = createClickHandler(currentRow);
+        }
+    }
+
+    function createClickHandler(row) {
+
+        return function () {
+            var cell = row.getElementsByTagName("td")[0];
+            var id = cell.innerHTML;
+            alert("Message" + id);
+        };
+
+    }
+    addRowHandlers();
+
+    $( 'search' ).bind('keypress', function(e){
+        if ( e.keyCode == 13 ) {
+            alert("Searching...");
+        }
+    });
+</script>
 </html>
